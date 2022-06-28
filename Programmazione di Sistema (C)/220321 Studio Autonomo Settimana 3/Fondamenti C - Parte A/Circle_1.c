@@ -4,7 +4,7 @@
 
 int main (void) {
 	float raggio;
-	printf("Inserisci raggio: ")
+	printf("Inserisci raggio: ");
 	scanf("%f", &raggio);
 
 	printf("La circonferenza è: %2f", 2 *PI * raggio);
