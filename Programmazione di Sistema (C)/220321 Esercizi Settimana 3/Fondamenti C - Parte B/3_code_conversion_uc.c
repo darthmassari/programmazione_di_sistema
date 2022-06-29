@@ -1,3 +1,8 @@
+/*
+* 3. Si trasformi il seguente programma concise C, in un programma equivalente 
+* (ovvero che esegue le stesse operazioni e produce gli stessi risultati) in stile unstructured C
+*/
+
 #include <stdio.h>
 
 int a = 21, b = -3, c, d;

@@ -1,3 +1,9 @@
+* 4. Dopo aver studiato la presentazione Fondamenti dei Linguaggi Assembly, si analizzino le seguenti istruzioni del’ASM MIPS32-MARS. 
+* Per ciascuna istruzione, si dica se essa è valida o meno (cioè se viola alcune regole). 
+* Se l’istruzione è valida si spieghi a parole la sua semantica. 
+* Se l’istruzione non è valida, si spieghi quale regole essa viola. 
+* In caso di dubbio, si consulti la documentazione ufficiale dell’architettura.
+
 1. move $s4,$t7	#valida
 
 2. move $s1,120	#non valido, move copia i valori tra due registri

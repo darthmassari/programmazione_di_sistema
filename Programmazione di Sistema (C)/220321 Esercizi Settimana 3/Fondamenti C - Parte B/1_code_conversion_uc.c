@@ -1,3 +1,8 @@
+/*
+* 1. Si trasformi il seguente programma plain C, in un programma equivalente 
+* (ovvero che esegue le stesse operazioni e produce gli stessi risultati) in stile unstructured C
+*/
+
 #include <stdio.h>
 
 int a, b = 10, c, d;

@@ -1,3 +1,10 @@
+# 3. Dopo aver studiato la presentazione Fondamenti dei Linguaggi Assembly, 
+# si analizzino le seguenti istruzioni del’ASM MC68000-ASM1. 
+# Per ciascuna istruzione, si dica se essa è valida omeno (cioè se viola alcune regole). 
+# Se l’istruzione è valida si spieghi a parole la sua semantica. 
+# Se l’istruzione non è valida, si spieghi quale regole essa viola. 
+# In caso di dubbio, si consulti la documentazione ufficiale dell’architettura.
+
 1. move #100,$t0	;Istruzione non valida, i registri non
 					;vogliono il $ e t0 non è un registro
 
