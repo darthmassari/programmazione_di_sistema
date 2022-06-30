@@ -43,15 +43,3 @@ della parola di formato word di t2,
 addu $t5,$t3,$t4		#addu fa la somma unsigned senza considerare
 				#eventuali overflow
 ble $t5,$t2, label2
-
-
-(I) Specifica 4.1
-Si memorizzi nella parola di registro di formato byte 
-di D1 il risultato della conversione al formato byte, 
-del contenuto della parola di registro di formato long 
-di D5, senza modificare D5.
-SE il valore memorizzato attraverso tale operazione è 
-NEGATIVO salta a label 1
-
-move.b d5,d1
-bmi label1		#bmi perchè sto lavorando con byte(?)
