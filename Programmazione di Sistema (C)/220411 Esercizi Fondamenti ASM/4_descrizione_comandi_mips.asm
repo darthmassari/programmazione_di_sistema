@@ -22,7 +22,7 @@
 8. mult $t5,$t2,$a1	#non valida, mult vuole 2 operandi, altrimenti
 					#mul vuole 3 operandi
 
-9. div $t3,$t2,4 	#valida, il quoziente va nel primo operand, il
+9. div $t3,$t2,4 	#valida, il quoziente va nel primo operando, il
 					#resto viene perduto
 
 10. div $t6,$s2	#valida, quoziente e resto vengono memorizzati in

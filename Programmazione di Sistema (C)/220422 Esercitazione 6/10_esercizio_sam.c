@@ -1,13 +1,15 @@
 /*
-10.	Sam ha trovato lavoro come programmatore presso una nuova azienda. 
-Il suo capo, Chief Software Archi-Engineer, responsabile per la software 
-quality, ha studiato informatica e quindi sa che l’uso dell’istruzione goto, 
-e per estensione delle istruzioni break e continue, è proibito, perché lo ha 
-asserito nientemeno che Dijkstra. Tutto il software va scritto applicando i 
-sacri principi della Programmazione Strutturata! Aiutate Sam a conservare il 
-suo posto di lavoro, trasformando il seguente programma C99 da lui scritto, 
-in un programma equivalente che non usi alcuna istruzione proibita!
+* 10.	Sam ha trovato lavoro come programmatore presso una nuova azienda. 
+* Il suo capo, Chief Software Archi-Engineer, responsabile per la software 
+* quality, ha studiato informatica e quindi sa che l’uso dell’istruzione goto, 
+* e per estensione delle istruzioni break e continue, è proibito, perché lo ha 
+* asserito nientemeno che Dijkstra. Tutto il software va scritto applicando i 
+* sacri principi della Programmazione Strutturata! Aiutate Sam a conservare il 
+* suo posto di lavoro, trasformando il seguente programma C99 da lui scritto, 
+* in un programma equivalente che non usi alcuna istruzione proibita!
+*/
 
+// Codice errato
 #include <stdio.h>
 
 int n, i, h, k = -4;
@@ -37,10 +39,10 @@ bad_input:
 	return 0;
 
 }
-*/
 
-//Istruzioni goto, break e continue proibite
 
+// Istruzioni goto, break e continue proibite
+// Codice corretto
 #include <stdio.h>
 
 int n, i, h, k = -4;

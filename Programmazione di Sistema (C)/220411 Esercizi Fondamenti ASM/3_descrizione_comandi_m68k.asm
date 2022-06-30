@@ -24,12 +24,12 @@
 7. muls a3,d2	;Istruzione non valida, muls non ammette registri
 				;indirizzi al primo operando
 
-8.muls #13,d6	;Istruzione valida, esegue l'operazione e la
+8. muls #13,d6	;Istruzione valida, esegue l'operazione e la
 				;memorizza in d6
 
-9.divs #$1234,d7	;Istruzione valida, il quoziente viene
+9. divs #$1234,d7	;Istruzione valida, il quoziente viene
 					;memorizzato nei primi 16 bit e il resto nei
 					;rimanenti bit
 
-10.divs d4,a4	;Istruzione non valida, il secondo registro non
+10. divs d4,a4	;Istruzione non valida, il secondo registro non
 				;può essere indirizzi

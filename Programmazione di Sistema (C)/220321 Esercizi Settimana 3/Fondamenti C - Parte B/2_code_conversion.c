@@ -38,14 +38,12 @@ int main( void ) {
 
     printf( "%d %d", a + 2, c % 3);
 
-    int t2;
     b *= 4;
     c = d;
-    t1 = c;
-    t2 = d - 4;
-    t2 -= a;
-    b -= t1;
-    b *= t2;
+    t1 = d - 4;
+    t1 -= a;
+    b -= c;
+    b *= t1;
 
     d = -c;
 
