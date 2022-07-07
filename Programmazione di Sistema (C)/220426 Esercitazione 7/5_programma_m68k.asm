@@ -13,7 +13,7 @@
 
 * d1 = x
 	
-	move.w	#$4c,a0	;$4c = 0100 1100
+	move.w	#$4c,a0		;$4c = 0100 1100
 	move.w	a0,d1
 	cmp.w	#256,d1
 	bhs	fine_codice		;se x >= 256, salta a fine codice	

@@ -6,7 +6,7 @@ v equ $00002800
 w equ $00002804
 
 * short signed, unsigned
-x equ $0002810 ; salto di più per una questione di allineamento(?)
+x equ $00002810 ; salto di più per una questione di allineamento(?)
 y equ $00002812
 z equ $00002814
 h equ $00002816

@@ -1,9 +1,6 @@
 # Realizzare una traduzione della versione C del programma in un codice MIPS32 
 # nel quale gli indirizzi di memoria sono rappresentati mediante numeri esadecimali
 
-# Trasforma una parte di un programma Plain C in MIPS32, immagazzinando dati
-# in memoria e rappresentando gli indirizzi mediante numeri
-
 # Corrispondenza tra variabili della versione Ref-pc e parole di memoria MIPS32
 # a ciascuna variabile long corrisponde una WORD (32 bit) di memoria
 # v -> 0x10011000
@@ -56,7 +53,7 @@ inizio_codice:
 	lhu	$t1,0x1001100c
 	multu	$t0,$t1
 	mflo	$t0
-	addu	$t0,2300
+	addu	$t0,$t0,2300
 	sh 	$t0,0x1001100a
 
 #	h = k * a + m;
