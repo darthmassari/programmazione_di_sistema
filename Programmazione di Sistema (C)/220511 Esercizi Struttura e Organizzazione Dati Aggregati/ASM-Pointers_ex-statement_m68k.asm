@@ -20,44 +20,64 @@ lab1:
 	org	$2000
 	
 * Referenziare nel registro a0, le parole di indirizzo $4010
-	move.l 	$4000+10,d0
-	move.l 	d0,(a0)
+
+	move.l 	$4000+10,d6
+	move.l 	#10,d7
+	mul	d6,d7
+	add.l 	d7,d6
+	move.l 	d6,a0
 
 * Indirezione: 
 ; 1) copiare il byte referenziato da a0 in d0
+
 	move.b 	(a0),d0
 
 ; 2) copiare la word referenziata da a0 in d1
+
 	move.w 	(a0),d1
 
 ; 3) copiare la long referenziata da a0 in d2
+
 	move.l 	(a0),d2
 
+
 * Referenziare nel registro a1, le parole il cui indirizzo è legato alla label "lab1"
-	move.l 	#lab1,(a1)
+
+	move.l 	#lab1,a1
 
 * Indirezione: 
 ; 1) copiare il byte referenziato da a1 in d0
+
 	move.b 	(a1),d0
 
 ; 2) copiare la word referenziata da a1 in d1
+
 	move.w 	(a1),d1
 
 ; 3) copiare la long referenziata da a1 in d2
+
 	move.l 	(a1),d2
+
 
 * Referenziare nel registro a2, le parole il cui indirizzo ha distanza +2 
 * rispetto all'indirizzo legato alla label "lab1"
-	move.l 	#lab1,2(a2)
+
+	move.l 	#lab1,a2
+	move.l 	#2,d7
+	mul	a2,d7
+	add.l 	d7,a2
 
 * Indirezione: 
 ; 1) copiare il byte referenziato da a2 in d0
+
 	move.b 	(a2),d0
+
 ; 2) copiare la word referenziata da a2 in d1
+
 	move.w 	(a2),d1
 
 ; 3) copiare la long referenziata da a2 in d2
+
 	move.l 	(a2),d2
 
-	end
-
+end
