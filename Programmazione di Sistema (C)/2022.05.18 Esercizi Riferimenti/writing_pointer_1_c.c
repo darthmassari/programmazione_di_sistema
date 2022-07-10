@@ -9,6 +9,7 @@
 
 * ⁃	Il programma definisce una sola funzione: main, con tipo di risultato int e lista di parametri void.
 * 	La funzione contiene istruzioni che effettuano la seguente sequenza di operazioni
+
 * ⁃	p_si assume puntatore a b
 * ⁃	incrementa di 1 la variabile puntata da p_si
 * ⁃	a assume a diminuito della variabile puntata da p_si
@@ -33,17 +34,19 @@ unsigned char x, y = 31, z = 99;
 unsigned char *p1_uc, *p2_uc;
 
 int main (void) {
-	*p_si = &b;
-	*p_si += 1;
+	p_si = &b;
+	*p_si += 1;		// O (*p_si) += 1; 	VERIFICARE
 	a -= *p_si;
-	*p1_ss = &k;
+	p1_ss = &k;
 	*p2_ss = *p1_ss;
-	*p1_ss = &h;
+	p1_ss = &h;
 	*p1_ss = k - 3;
-	*p1_uc = &x, *p2_uc = &y;
+	p1_uc = &x, p2_uc = &y;
 	*p2_uc += 4;
 	*p1_uc = z + 1;
 	p2_uc = p1_uc;
 	*p1_uc -= y;
 	*p2_uc += 5;
+
+	return 0;
 }

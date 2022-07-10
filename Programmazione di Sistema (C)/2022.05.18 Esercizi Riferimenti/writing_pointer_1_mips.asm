@@ -17,14 +17,14 @@
 # unsigned char *p1_uc, *p2_uc;
 
 # int main (void) {
-# 	*p_si = &b;
-# 	*p_si += 1;
+# 	p_si = &b;			
+# 	*p_si += 1;			
 # 	a -= *p_si;
-# 	*p1_ss = &k;
+# 	p1_ss = &k;		
 # 	*p2_ss = *p1_ss;
-# 	*p1_ss = &h;
+# 	p1_ss = &h;		
 # 	*p1_ss = k - 3;
-# 	*p1_uc = &x, *p2_uc = &y;
+# 	p1_uc = &x, p2_uc = &y;	
 # 	*p2_uc += 4;
 # 	*p1_uc = z + 1;
 # 	p2_uc = p1_uc;
@@ -54,9 +54,9 @@ p2_uc:	.word 0
 
 .text
 code_start:
-#	*p_si = &b;
-	la $t0,b
-	sw $t0,p_si
+#	p_si = &b;
+	la $t0, b
+	sw $t0, p_si
 
 #	*p_si += 1;
 	la $s0,p_si
@@ -66,30 +66,29 @@ code_start:
 
 #	a -= *p_si;
 	lw $s1,a
-	move $t0,($s0)
-	sub $s1,$s1,$t0		#DA CORREGGERE
+	sub $s1,$s1,$t0	
 	sw $s1,a
 
-#	*p1_ss = &k;
+#	p1_ss = &k;
 	la $t0,b
 	sw $t0,p1_ss
 
 #	*p2_ss = *p1_ss;
 	la $s1,p1_ss		#s1 contiene l'indirizzo di p1_ss
-	move $t1,($s1)		#t1 contiene la variabile puntata da p1_ss
+	lh $t1,($s1)		#t1 contiene la variabile puntata da p1_ss
 	la $s2,p2_ss		#s2 contiene l'indirizzo di p2_ss
-	sw $t1,($s2)		#copio la variabile puntata da p1_ss nel puntatore p2_ss
+	sh $t1,($s2)		#copio la variabile puntata da p1_ss nel puntatore p2_ss
 
-#	*p1_ss = &h;
+#	p1_ss = &h;
 	la $t0,h
 	sw $t0,p1_ss
 
 #	*p1_ss = k - 3;
-	lh $t0,h
+	lh $t0,k
 	sub $t0,$t0,3
-	sw $t0,p1_ss
+	sh $t0,p1_ss
 
-#	*p1_uc = &x, *p2_uc = &y;
+#	p1_uc = &x, p2_uc = &y;
 	la $t0,x
 	sw $t0,p1_uc
 	la $t0,y
@@ -97,14 +96,14 @@ code_start:
 
 #	*p2_uc += 4;
 	la $s0,p2_uc
-	move $t0,($s0)
-	add $t0,$t0,4
-	sw $t0,p2_uc
+	lbu $t0,($s0)
+	addu $t0,$t0,4
+	sb $t0,($s0)
 
 #	*p1_uc = z + 1;
 	lbu $t0,z
-	add $t0,$t0,1
-	sw $t0,p1_uc
+	addu $t0,$t0,1
+	sb $t0,p1_uc
 
 #	p2_uc = p1_uc;
 	la $s0,p1_uc
@@ -112,12 +111,12 @@ code_start:
 
 #	*p1_uc -= y;
 	lbu $t0,y
-	move $t1,($s0)
-	sub $t1,$t1,$t0
-	lw $t1,($s0)
+	lbu $t1,($s0)
+	subu $t1,$t1,$t0
+	sb $t1,($s0)
 
 #	*p2_uc += 5;
 	la $s0,p2_uc
-	move $t0,($s0)
-	add $t0,$t0,5
-	sw $t0,($s0)
+	lbu $t0,($s0)
+	addu $t0,$t0,5
+	sb $t0,($s0)

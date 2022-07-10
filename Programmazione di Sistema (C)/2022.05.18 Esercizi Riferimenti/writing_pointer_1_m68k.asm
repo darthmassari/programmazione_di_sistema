@@ -17,14 +17,14 @@
 * unsigned char *p1_uc, *p2_uc;
 
 * int main (void) {
-* 	*p_si = &b;
+* 	p_si = &b;
 * 	*p_si += 1;
 * 	a -= *p_si;
-* 	*p1_ss = &k;
+* 	p1_ss = &k;
 * 	*p2_ss = *p1_ss;
-* 	*p1_ss = &h;
+* 	p1_ss = &h;
 * 	*p1_ss = k - 3;
-* 	*p1_uc = &x, *p2_uc = &y;
+* 	p1_uc = &x, p2_uc = &y;
 * 	*p2_uc += 4;
 * 	*p1_uc = z + 1;
 * 	p2_uc = p1_uc;
@@ -67,23 +67,23 @@ code_start:
 	move.l (a0),d0
 	sub.l d0,a
 
-;	*p1_ss = &k;
+;	p1_ss = &k;
 	move.l #k,p1_ss
 
 ;	*p2_ss = *p1_ss;
 	move.l p2_ss,a0
-	move.l p1_ss,a1
+	move.l p1_ss,a1 	*OPPURE move.l p1_ss, p2_ss; VERIFICARE
 	move.l (a1),(a0)
 
-;	*p1_ss = &h;
+;	p1_ss = &h;
 	move.l #h,p1_ss
 
 ;	*p1_ss = k - 3;
 	move.w #k,d0
 	sub.w #3,d0
-	move.l d0,(a1)
+	move.w d0,(a1)
 
-;	*p1_uc = &x, *p2_uc = &y;
+;	p1_uc = &x, p2_uc = &y;
 	move.l #x,p1_uc
 	move.l #y,p2_uc
 
@@ -94,18 +94,18 @@ code_start:
 ;	*p1_uc = z + 1;
 	move.l p1_uc,a1
 	move.b #z,d0
-	add.l #1,d0
-	move.l d0,(a1)
+	add.b #1,d0
+	move.b d0,(a1)
 
 ;	p2_uc = p1_uc;
 	move.l p1_uc,p2_uc
 
 ;	*p1_uc -= y;
 	move.b y,d0
-	sub.l d0,(a1)
+	sub.b d0,(a1)
 
 ;	*p2_uc += 5;
-	add.l #5,(a3)
+	add.b #5,(a3)
 
 end
 	
