@@ -11,9 +11,9 @@ id1: .word 0
 id2: .word 0
 
 	.text
-code_start:
+code_start: 
 #	array1[ 3 ] += 8;
-	lw $s1,array1
+	la $s1,array1
 	lbu $t0,3($s1)
 	addu $t0,$t0,8
 	sb $t0,3($s1)
