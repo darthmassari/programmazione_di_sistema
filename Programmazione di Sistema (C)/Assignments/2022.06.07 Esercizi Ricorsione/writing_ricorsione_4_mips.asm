@@ -43,6 +43,7 @@ main_start:
 	jal fr
 
 	lw $s1, ($sp)
+	add $sp, $sp, 4
 	la $a1, #r1
 	sw $s1, ($a1)
 
