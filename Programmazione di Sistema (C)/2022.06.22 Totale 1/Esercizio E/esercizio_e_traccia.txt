@@ -1,4 +1,4 @@
-EsercizioE(8 punti)
+Esercizio E (8 punti)
 Si scriva un programma C99 con le seguenti caratteristiche:
   . definisce un tipo aggregato T formato da due membri di tipo char di nome c1 e c2, un
     membro di tipo long di nome x e un membro di tipo int di nome y (l'ordine dei membri può

@@ -1,0 +1,172 @@
+Esercizio A (6 punti)
+Si scriva un programma con le seguenti caratteristiche:
+  ° La procedura principale del programma esegue le seguenti azioni:
+    ° Chiama la procedura f con parametro 10 e memorizza il risultato nella variabile R1
+    ° Chiama la procedura f con parametro 15 e memorizza il risultato nella variabile R2
+  ° La procedura f deve calcolare, in modo ricorsivo, il risultato della funzione matematica f(x),
+    che ha un parametro intero e produce un risultato intero, definita come segue(gli operatori
+    presenti nella definizione hanno lo stesso significato che in C Standard):
+    ° f(x) = 1                                        se x <= 0
+    ° f(x) = ( 110 - f( x/5 ) ) * ( 2 * x + 1 )       se x > 0
+
+Si devono scrivere ed inviare 3 versioni del programma, che soddisfino i seguenti requisiti:
+  1  Versione C
+    - gli interi sono memorizzati in variabili di tipo int
+  2  Versione ASM MC68000-ASM in cui:
+    - gli interi sono memorizzati in parole di formato word
+    - parametri e risultato sono passati attraverso lo stack
+  3  Versione ASM MIPS-MARS in cui:
+    - gli interi sono memorizzati in parole di formato word
+    - parametri e risultato sono passati attraverso registri
+
+
+Esercizio B (3 punti)
+Facendo riferimento ai numeri di riga (che non fanno parte del codice sorgente),si descriva cosa accade
+traducendo ed eseguendo il programma seguente con una abstract machine C99. In particolare si descriva
+quali valori vengono assunti dalle variabili durante l'esecuzione del programma. Potrebbe accadere che il
+programma contenga degli errori. Per ogni violazione di regola sintattica o constraint presente nel
+programma,si scriva qual'è la regola violata e poi si rimuova l'istruzione o la dichiarazione che la
+contiene e si continui a tradurre ed eseguire il programma (come se l'istruzione o dichiarazione rimossa non
+fosse mai esistita). Allo stesso modo, per ogni undefined behavior presente nel programma, si scriva qual'è il
+motivo del comportamento e poi si rimuova l'istruzione o la dichiarazione che lo contiene e si continui a
+tradurre ed eseguire il programma (come se l'istruzione o dichiarazione rimossa non fosse mai esistita). Ogni
+volta che,a causa di un unspecified behavior o di un implementation-defined behavior,è possibile che il
+programma abbia risultati diversi su implementazioni diverse, si spieghi il motivo.
+
+
+1. #include <stdio.h>
+2. int k = 77, h = 99;
+3. int fl( int k ) {
+4.     int w = k - 1;
+5.     printf("%d %d %d\n", w, k, h );
+6.     f2();
+7.     for ( int i = 0, h = 7; i < k; i++ ) {
+8.         static int k = 3;
+9.         int h = 7;
+10.        printf("%d %d %d\n", w, k, h);
+11.        w *= 2; k *= 2; h *= 2;
+12.     }
+13.     w++, k++, h++;
+14.     printf("%d %d %d\n", w, k, h);
+15.     return w;
+16. }
+17. 
+18. void f2( void ) {
+19.     k++;
+20.     printf("%d\n", k);
+21. }
+22. 
+23. int main( void ) {
+24.     int t = 2, k = 4;
+25. 
+26.     fl( --k );
+27.     f2();
+28.     t = f1( t );
+29.     t = f2();
+30.     return 0;
+31. }
+32. 
+
+
+Esercizio C (1 punto)
+Si scrivano i seguenti costrutti C
+    1.  dichiarazione di una variabile vp di tipo puntatore a funzione che ha risultato di tipo int e un
+        parametro di tipo float
+    2.  istruzione di assegnamento a vp di un valore puntatore a funzione che ha risultato di tipo
+        int e un parametro di tipo float
+    3.  chiamata della funzione puntata da vp (tramite vp)
+    4.  dichiarazione di un array avp di lunghezza 5, icui elementi hanno tipo puntatore a funzione
+        che ha risultato di tipo int e un parametro di tipo float
+
+
+Esercizio D (6 punti)
+Facendo riferimento ai numeri di riga (che non fanno parte del codice sorgente),si descriva cosa accade
+traducendo ed eseguendo il programma seguente con una abstract machine C99. In particolare si descriva
+quali valori vengono assunti dalle variabili durante l'esecuzione del programma. Potrebbe accadere che il
+programma contenga degli errori. Per ogni violazione di regola sintattica o constraint presente nel
+programma, si scriva qual'è la regola violata e poi si rimuova l'istruzione o la dichiarazione che la
+contiene e si continui a tradurre ed eseguire il programma (come se l'istruzione o dichiarazione rimossa non
+fosse mai esistita). Allo stesso modo, per ogni undefined behavior presente nel programma, si scriva qual'è il
+motivo del comportamento e poi si rimuova l'istruzione o la dichiarazione che lo contiene e si continui a
+tradurre ed eseguire il programma (come se l'istruzione o dichiarazione rimossa non fosse mai esistita). Ogni
+volta che,a causa di un unspecified behavior o di un implementation-defined behavior,è possibile che il
+programma abbia risultati diversi su implementazioni diverse, si spieghi il motivo.
+
+
+1.	int x = 8, y = -3, *p1, z = 6.5, w;
+2.	float f = 2.65, *p2, g[4] = { .35, [2] = -3.5, 4.3 };
+3.	void *p3 = &y;
+4.	
+5.	int main(void) {
+6.	
+7.		z = ( x + z ) % ( w = f + 2 );
+8.	    p1 = &z;
+9.	
+10.	    w = ( ++x + 4 ) / z + ( x == 10 - y );
+11.	    x = y > 4 || *p1 + 5;
+12.	    *p1 = -1;
+13.	    w = ( x++ *7 , x == 10 - y );
+14.     w = 2, y = -1;
+15.	    x = w >= y || ++z;
+16.	    pl = p3;
+17.	    w = y = 5;
+18.	    x = w > y || ++z;
+19.	    p2 = pl;
+20.     w = -2, y = -1;
+21.	    p2 = g + 1;
+22.	    x = w >= y || z += 2;
+23.	    f += p2[ 1 ] + p2[ -1 ];
+24.	    return 0;
+25. }
+
+
+Esercizio E (8 punti)
+Si scriva un programma C99 con le seguenti caratteristiche:
+  . definisce un tipo aggregato T formato da due membri di tipo char di nome c1 e c2, un
+    membro di tipo long di nome x e un membro di tipo int di nome y (l'ordine dei membri può
+    essere scelto come rivuole ,per facilitare la traduzione in ASM)
+  . definisce un array a di lunghezza 10 di elementi di tipo T
+  . esegue un ciclo in cui chiede all'utente di inserire i dati da memorizzare in a
+  . ordina a in base ai valori crescenti dei membri c1 degli elementi (ovvero un elemento h viene
+    considerato minore di un elemento k se e solo se il membro c1 di h è minore del membro c1
+    di k)
+  . stampa, uno alla volta, gli elementi di a
+
+Per ordinare a, il programma il seguente algoritmo (chiamato Insertion Sort)
+  . Per j che va da 2 a 10, ripeti:
+    - key assume a[ j ]
+    - i assume j - 1
+    - mentre i > 0 e a[ i ] > key, ripeti:
+      - a[ i + 1 ] assume a[ i ]
+      - i assume i - 1
+    - a[ i + 1 ]assume key
+
+
+Dopo aver scritto il programma C99, lo si traduca in MIPS32-MARS e in MC68000. 
+Per la versione MIPS32-MARS, usare
+    il formato byte per rappresentare il tipo char
+    il formato half per rappresentare il tipo int
+    il formato word per rappresentare il tipo long
+Per la versione MC68000-ASM1, usare
+    il formato byte per rappresentare il tipo char
+    il formato word per rappresentare il tipo int
+    il formato long per rappresentare il tipo long
+
+Nel rappresentare il tipo aggregato T, si presti attenzione ai vincoli di allineamento: per evitare
+problemi si consiglia di scegliere in modo opportuno l'ordine dei membri all'interno dell'area di
+memoria che rappresenta un valore di T.
+Entrambe le versioni assembly, per effettuare input/output usare delle parole magiche, ovvero delle
+parole di memoria speciali, accedendo alle quali l'hardware effettua operazioni input/output. In
+particolare:
+  - l'input di un carattere avviene leggendo il contenuto della parola di8bit che ha indirizzo
+     0x6000
+  - l'output di un carattere avviene scrivendo il carattere nella parola di8bit che ha indirizzo
+     0x6001
+  - l'input di un intero di 16 cifre binarie avviene leggendo il contenuto della parola di 16 bit che
+     ha indirizzo 0x7000
+  - l'output di un intero di 16 cifre binarie avviene scrivendolo nella parola di 16 bit che ha
+     indirizzo 0x7002
+  - l'input di un intero di 32 cifre binarie avviene leggendo il contenuto della parola di 32 bit che
+     ha indirizzo 0x8000
+  - l'output di un intero di 32 cifre binarie avviene scrivendolo nella parola di 32 bit che ha
+    indirizzo 0x8004
