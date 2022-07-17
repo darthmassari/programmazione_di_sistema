@@ -35,54 +35,48 @@
 r1:	.word 0
 r2:	.word 0
 
+# CORRISPONDENZE
+# parametro e risultato -> $s0
+
 	.text
 main_start:
 	li $s0, 10
-	sub $sp, $sp, 4
-	sw $s0, ($sp)
 	jal f
-	lw $s1, ($sp)
-	add $sp, $sp, 4
 	la $a1, #r1
-	sw $s1, ($a1)
+	sw $s0, ($a1)
 
 	li $s0, 15
-	sub $sp, $sp, 4
-	sw $s0, ($sp)
 	jal f
-	lw $s1, ($sp)
 	la $a1, #r2
-	sw $s1, ($a1)
+	sw $s0, ($a1)
 
 main_end:
 	j code_end
 
+# CORRISPONDENZE
+# parametro -> $s0
+# registri per calcoli -> $t0, $t1
+
 f:
-	lw $t0, ($sp)
-	blez $t0, if_f_0
+	blez $s0, if_f_0
 
-	move $t1, $t0
-	div $t1, $t1, 5
-	sub $sp, $sp, 8
-	sw $t1, ($sp)
-	sw $ra, 4($sp)
+	div $s0, $s0, 5	
+	sub $sp, $sp, 4
+	sw $ra, ($sp)
 	jal f
-	lw $t1, ($sp)
-	lw $ra, 4($sp)
-	add $sp, $sp, 8
-	li $t2, 110
-	sub $t1, $t2, $t1
-
+	lw $ra, ($sp)
+	add $sp, $sp, 4
+	move $t0, $s0
 	mul $t0, $t0, 2
 	add $t0, $t0, 1
+	li $t1, 110
+	sub $s0, $t1, $s0
 
-	mul $t0, $t0, $t1
-	sw $t0, ($sp)
+	mul $s0, $s0, $t0
 	jr $ra
 
 if_f_0:
-	li $t0, 1
-	sw $t0, ($sp)
+	li $s0, 1
 	jr $ra
 
 code_end:

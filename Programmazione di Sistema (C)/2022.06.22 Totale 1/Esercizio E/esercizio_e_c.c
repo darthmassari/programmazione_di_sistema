@@ -49,7 +49,7 @@ int main(void){
     a [ i + 1 ].c1 = key;
   }
 
-  for(int i = 0; i < 10; i++) {
+  for(i = 0; i < 10; i++) {
     printf("%hhd %hhd %ld %d", a[i].c1, a[i].c2, a[i].x, a[i].y);
   }
   return 0;
