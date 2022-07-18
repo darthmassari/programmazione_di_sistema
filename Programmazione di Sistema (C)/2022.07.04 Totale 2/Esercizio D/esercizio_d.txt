@@ -52,7 +52,7 @@ Analisi dinamica
 	Riga 10: Le due operazioni che manipolano x non sono vincolate ad essere eseguite una prima dell'altra
 	Riga 11: x = 1
 	Riga 12: *p1 = -1 -> z = -1
-	Riga 13: x = 2, x = 1, w = 1
+	Riga 13: x = 2, w = 0
 	Riga 14: w = 2, y = -1
 	Riga 15: x = 1
 	Riga 16: p1 punta all'indirizzo di p3
