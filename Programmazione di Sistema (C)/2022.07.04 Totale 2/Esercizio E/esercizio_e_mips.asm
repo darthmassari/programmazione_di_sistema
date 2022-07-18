@@ -65,28 +65,36 @@ for_1_start:
 
 	la $a1, c1
 	lb $t1, 0x6000
-	sb $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sb $t1, ($a1)
 	la $a1, c2
 	lb $t1, 0x6000
-	sb $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sb $t1, ($a1)
 	la $a1, s1
 	lh $t1, 0x7000
-	sh $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sh $t1, ($a1)
 	la $a1, s2
 	lh $t1, 0x7000
-	sh $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sh $t1, ($a1)
 	la $a1, s3
 	lh $t1, 0x7000
-	sh $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sh $t1, ($a1)
 	la $a1, s4
 	lh $t1, 0x7000
-	sh $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sh $t1, ($a1)
 	la $a1, s5
 	lh $t1, 0x7000
-	sh $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sh $t1, ($a1)
 	la $a1, m
 	lw $t1, 0x8000
-	sw $t1, $t0($a1)
+	add $a1, $a1, $t0
+	sw $t1, ($a1)
 
 	add $t0, $t0, 1
 	j for_1_start
