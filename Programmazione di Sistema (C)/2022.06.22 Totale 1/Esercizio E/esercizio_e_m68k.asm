@@ -46,16 +46,16 @@
 
 i_char equ $00006000
 o_char equ $00006001
-i_int_16 equ $00007000
-o_int_16 equ $00007002
-i_int_32 equ $00008000
-o_out_32 equ $00008004
+i_int equ $00007000
+o_int equ $00007002
+i_long equ $00008000
+o_long equ $00008004
 
 	org $4000
 c1: ds.b 10
 c2: ds.b 10
-x: ds.l 10
 y: ds.w 10
+x: ds.l 10
 
 	org $2000
 main_start:
@@ -71,8 +71,8 @@ for_1_start:
 
 	move.b i_char, (a0, d0.b)
 	move.b i_char, (a1, d0.b)
-	move.l i_int_32, (a2, d0.l)
-	move.l i_int_16, (a3, d0.w)
+	move.l i_int, (a2, d0.w)
+	move.l i_long, (a3, d0.l)
 
 	add.w #1, d0
 	bra for_1_start
@@ -125,8 +125,9 @@ for_3_start:
 	bge for_3_end
 	move.b (a0, d0.b), o_char
 	move.b (a1, d0.b), o_char 
-	move.l (a2, d0.l), o_int_32 
-	move.l (a3, d0.w), o_int_16
+	move.l (a2, d0.w), o_int
+	move.l (a3, d0.l), o_long 
+	
 	add.w #1, d0
 	bra for_3_start
 

@@ -44,15 +44,23 @@
 *   - l'output di un valore di 32 cifre binarie avviene scrivendolo nella parola di 32 bit che ha
 *     indirizzo 0x8004
 
+
+i_char equ $00006000
+o_char equ $00006001
+i_int equ $00007000
+o_int equ $00007002
+i_long equ $00008000
+o_long equ $00008004
+
 	org $4000
 c1: ds.b 12
 c2: ds.b 12
-s1: ds.h 12
-s2: ds.h 12
-s3: ds.h 12
-s4: ds.h 12
-s5: ds.h 12
-m: ds.w 12
+s1: ds.w 12
+s2: ds.w 12
+s3: ds.w 12
+s4: ds.w 12
+s5: ds.w 12
+m: ds.l 12
 
 b: ds.b 12
 
@@ -65,21 +73,21 @@ for_1_start:
 	bge for_1_end
 
 	move.l #c1, a1
-	move.b $6000, (a1, d0)
+	move.b i_char, (a1, d0)
 	move.l #c2, a1
-	move.b $6000, (a1, d0)
+	move.b i_char, (a1, d0)
 	move.l #s1, a1
-	move.w $7000, (a1, d0)
+	move.w i_int, (a1, d0)
 	move.l #s2, a1
-	move.w $7000, (a1, d0)
+	move.w i_int, (a1, d0)
 	move.l #s3, a1
-	move.w $7000, (a1, d0)
+	move.w i_int, (a1, d0)
 	move.l #s4, a1
-	move.w $7000, (a1, d0)
+	move.w i_int, (a1, d0)
 	move.l #s5, a1
-	move.w $7000, (a1, d0)
+	move.w i_int, (a1, d0)
 	move.l #m, a1
-	move.l $8000, (a1, d0)
+	move.l i_long, (a1, d0)
 
 	add #1, d0
 	bra for_1_start
@@ -146,7 +154,7 @@ for_2_end:
 for_3_start:
 	cmp.w #12, d0
 	bge for_3_end
-	move.w (a3, d3), $6001
+	move.w (a3, d3), o_char
 	add.w #1, d0
 	bra for_3_start
 
