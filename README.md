@@ -1,2 +1,2 @@
 ## Attenzione ##
-### Tengo a precisare che gli esercizi svolti dei totali *NON* sono le soluzioni di questi ultimi, anzi, potrebbero contenere diversi errori ###
+### Tengo a precisare che gli esercizi svolti *NON* sono le soluzioni, anzi, potrebbero contenere diversi errori ###
